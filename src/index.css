@@ -1,0 +1,828 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --theme-from: #06b6d4;
+  --theme-via: #a855f7;
+  --theme-to: #ec4899;
+  --theme-accent: #3b82f6;
+}
+
+.theme-gradient {
+  background: linear-gradient(to right, var(--theme-from), var(--theme-via), var(--theme-to));
+}
+
+.theme-gradient-text {
+  background: linear-gradient(to right, var(--theme-from), var(--theme-via), var(--theme-to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+
+
+
+.hero-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/profile.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 100;
+  display: flex;
+  align-items: center; /* Center vertically */
+  padding-left: 10%;   /* Align text to the left like the image */
+}
+
+/* The Bold Stacked Name */
+.hero-name-container {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.85; /* Tight spacing between lines */
+}
+
+.hero-name-intro {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+
+  /* Image inside text */
+  background-image: url('/name_bg.jpg');
+  background-size: cover;
+  background-position: center;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  margin-bottom: 0.6rem;
+}
+
+.hero-name-line {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+
+  /* Image inside text */
+  background-image: url('/name_bg.jpg');
+  background-size: cover;
+  background-position: center;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Subtle depth */
+  filter:
+    drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 0 20px rgba(255, 255, 255, 0.06));
+}
+
+/* Sub-headline AI | DATA | CLOUD */
+.hero-sub {
+  margin-top: 2rem;
+  padding-left: 0.5rem; /* Tiny offset for style */
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.4em; /* Wide spacing for a premium feel */
+  text-transform: uppercase;
+  
+  /* Use Cyan for a tech/AI vibe */
+  color: #9f94a1; 
+  
+  /* Soft neon glow */
+  text-shadow: 0 0 15px rgba(225, 169, 255, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Optional: Make the vertical bars white and thin for contrast */
+.hero-sub span.divider {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 300;
+}
+
+/* =========================================
+   SOCIAL ICON BAR — GLASSMORPHISM
+   ========================================= */
+
+.social-bar {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  pointer-events: auto;
+}
+
+.social-item {
+  width: 60px;
+  height: 60px;
+
+  /* Glass */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  /* Glass border */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Icon */
+  color: rgba(255, 255, 255, 0.85);
+  
+  /* Subtle depth */
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.social-item:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.35),
+    0 0 20px rgba(255, 255, 255, 0.08),
+    inset 0 1px 2px rgba(255, 255, 255, 0.18);
+}
+
+
+
+.about-me-mask {
+  font-family: 'Inter', sans-serif;
+
+  font-size: clamp(5rem, 12vw, 14rem);
+  font-weight: 900;
+
+  text-align: left;
+  letter-spacing: -0.05em;
+  line-height: 0.85;
+
+  /* Image inside the text */
+  background-image: url('/profile.jpg');
+  background-size: 200% 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  transform-origin: center center;
+  will-change: transform, opacity;
+
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.about-heading {
+  margin-top: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  background: linear-gradient(to right, var(--theme-from), var(--theme-via), var(--theme-to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  will-change: transform, opacity;
+}
+
+.about-description {
+  margin-top: 1.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 650px;
+
+  font-size: 1.1rem;
+  line-height: 1.7;
+
+  color: #475569;
+  text-align: center;
+
+  will-change: transform, opacity;
+}
+
+.scroll-progress {
+  background: linear-gradient(to right, var(--theme-from), var(--theme-via), var(--theme-to));
+}
+
+.projects-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  background: linear-gradient(to right, var(--theme-from), var(--theme-via), var(--theme-to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+  will-change: transform, opacity;
+}
+
+.transition-section {
+  position: relative;
+}
+
+.transition-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+/* Glassmorphism Styling */
+.glass-card {
+  background: rgba(255, 255, 255, 0.15); /* Light transparency */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Fan Effect adjustments */
+.swiper-slide {
+  transition: all 0.5s ease;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.05));
+}
+
+.swiper-slide:not(.swiper-slide-active) {
+  opacity: 0.4;
+  filter: blur(2px) grayscale(20%);
+}
+
+.swiper-slide-active .glass-card {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transform: translateY(-10px); /* Raise the active card slightly */
+}
+
+/* Customizing the Swiper Dots */
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #cbd5e1;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: #1e293b !important;
+  width: 30px;
+  border-radius: 5px;
+}
+
+/* Styling the navigation arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #1e293b !important; /* Dark slate color */
+  background: rgba(255, 255, 255, 0.3);
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 8px !important;
+  font-weight: bold;
+}
+
+/* Ensure the arrows are hidden on small mobile screens if desired */
+@media (max-width: 640px) {
+  .swiper-button-next, .swiper-button-prev {
+    display: none !important;
+  }
+}
+
+/* Hover effect for arrows */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.1);
+}
+
+/* Swiper navigation button fixes */
+.swiper-button-next,
+.swiper-button-prev {
+  z-index: 50 !important;
+  pointer-events: all !important;
+  color: #0f172a !important;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  width: 44px !important;
+  height: 44px !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+.swiper-button-next {
+  right: 24px !important;
+  padding: 10px !important;
+}
+
+.swiper-button-prev {
+  left: 24px !important;
+  padding: 10px !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 8px !important;
+  font-weight: 900;
+}
+
+
+/* Swiper Active Slide Shadow */
+.swiper-slide-active {
+  filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.1));
+  z-index: 2;
+}
+
+/* Modal Scrollbar Styling (Minimal) */
+.animate-in::-webkit-scrollbar {
+  width: 6px;
+}
+.animate-in::-webkit-scrollbar-track {
+  background: transparent;
+}
+.animate-in::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+/* Ensures background ribbons don't block the modal clicks */
+.fixed {
+  pointer-events: auto !important;
+}
+
+
+/* Vertical Timeline Line Glow */
+.relative > .absolute.left-1\/2 {
+  filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.4));
+}
+
+/* Glass Card styling for Experience */
+.glass-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Mobile adjustments: Move the line to the left on small screens if needed */
+@media (max-width: 768px) {
+  .md\:w-1\/2 {
+    text-align: left !important;
+  }
+}
+
+
+/* Add these for the Skills UI */
+.glass-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px) saturate(120%);
+  -webkit-backdrop-filter: blur(15px) saturate(120%);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+}
+
+/* Add a subtle glow to the active pillar */
+.glass-card:hover {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+
+
+
+
+/* THE INFINITE MARQUEE ANIMATION */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Move half-way (since we doubled the array) */
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite; /* Adjust '30s' to change speed */
+}
+
+/* Pause the scrolling when the user hovers over a logo */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Ensure glass card matches your site */
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* Glass Header Styling */
+.glass-header {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+}
+
+/* Progress Bar Glow */
+.scroll-progress {
+  filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.4));
+  transition: transform 0.1s ease-out;
+}
+
+/* Ensure section titles have IDs so the Nav Links work */
+section {
+  scroll-margin-top: 120px; /* Prevents header from covering titles when clicking links */
+}
+
+
+/* DARK MODE STYLING */
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  background-color: #ffffff;
+  color: #0f172a;
+
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
+}
+
+html.dark,
+html.dark body {
+  background-color: #111827;
+  color: #f8fafc;
+}
+
+/* =========================
+   DARK MODE TEXT
+========================= */
+
+html.dark .about-description {
+  color: #cbd5e1;
+}
+
+
+/* Any normal text */
+html.dark .text-slate-900 {
+  color: #f8fafc !important;
+}
+
+html.dark .text-slate-800 {
+  color: #e2e8f0 !important;
+}
+
+html.dark .text-slate-700 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-500 {
+  color: #d7dee9 !important;
+}
+
+
+
+/* =========================================================
+   PROJECT CARDS
+   ========================================================= */
+
+.project-card {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  color: #0f172a;
+
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.project-category {
+  color: #0891b2;
+}
+
+.project-title {
+  color: #0f172a;
+}
+
+.project-description {
+  color: #64748b;
+}
+
+.project-tag {
+  background: #f8fafc;
+  color: #64748b;
+  border: 1px solid #f1f5f9;
+}
+
+.project-tag-more {
+  background: #f8fafc;
+  color: #94a3b8;
+  border: 1px solid #f1f5f9;
+}
+
+.project-footer {
+  border-top: 1px solid #f1f5f9;
+}
+
+.project-learn-more {
+  color: #0f172a;
+}
+
+.project-learn-more:hover {
+  color: #0891b2;
+}
+
+.project-icons {
+  color: #0f172a;
+}
+
+
+/* =========================================================
+   PROJECT MODAL
+   ========================================================= */
+
+.project-modal-overlay {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.project-modal {
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 2.5rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+.project-modal-close {
+  background: rgba(255, 255, 255, 0.8);
+  color: #0f172a;
+}
+
+.project-modal-category {
+  color: #0891b2;
+}
+
+.project-modal-title {
+  color: #0f172a;
+}
+
+.project-modal-description {
+  color: #475569;
+}
+
+.project-modal-skills-title {
+  color: #94a3b8;
+}
+
+.project-modal-tag {
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #f1f5f9;
+}
+
+.project-modal-actions {
+  border-top: 1px solid #f1f5f9;
+}
+
+.project-github-button {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.project-github-button:hover {
+  background: #1e293b;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.dark .project-card {
+  background: #2D3754;
+  border-color: #27272a;
+  color: #f8fafc;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+html.dark .project-category {
+  color: #22d3ee;
+}
+
+html.dark .project-title {
+  color: #f8fafc;
+}
+
+html.dark .project-description {
+  color: #a1a1aa;
+}
+
+html.dark .project-tag {
+  background: #27272a;
+  color: #d4d4d8;
+  border-color: #3f3f46;
+}
+
+html.dark .project-tag-more {
+  background: #27272a;
+  color: #a1a1aa;
+  border-color: #3f3f46;
+}
+
+html.dark .project-footer {
+  border-top-color: #3f3f46;
+}
+
+html.dark .project-learn-more {
+  color: #f8fafc;
+}
+
+html.dark .project-learn-more:hover {
+  color: #22d3ee;
+}
+
+html.dark .project-icons {
+  color: #f8fafc;
+}
+
+
+/* =========================================================
+   DARK MODE MODAL
+   ========================================================= */
+
+html.dark .project-modal-overlay {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+html.dark .project-modal {
+  background: #18181b;
+  color: #f8fafc;
+}
+
+html.dark .project-modal-close {
+  background: rgba(39, 39, 42, 0.9);
+  color: #f8fafc;
+}
+
+html.dark .project-modal-category {
+  color: #22d3ee;
+}
+
+html.dark .project-modal-title {
+  color: #f8fafc;
+}
+
+html.dark .project-modal-description {
+  color: #a1a1aa;
+}
+
+html.dark .project-modal-skills-title {
+  color: #71717a;
+}
+
+html.dark .project-modal-tag {
+  background: #27272a;
+  color: #d4d4d8;
+  border-color: #3f3f46;
+}
+
+html.dark .project-modal-actions {
+  border-top-color: #3f3f46;
+}
+
+html.dark .project-github-button {
+  background: #f8fafc;
+  color: #18181b;
+}
+
+html.dark .project-github-button:hover {
+  background: #e4e4e7;
+}
+
+/* ABOUT ME — DARK MODE */
+html.dark .about-me-mask {
+  background-image: url('/about_me.jpg');
+}
+
+/* =========================
+   RIBBON CUSTOMIZER
+   ========================= */
+
+#ribbon-customizer-drawer {
+  background-color: #ffffff;
+  color: #0f172a;
+  border-color: #ffffff;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* ---------- DARK MODE ---------- */
+
+html.dark #ribbon-customizer-drawer {
+  background-color: #081d46e2;
+  color: #ffffff;
+  border-color: #e6ecf3;
+}
+
+/* Text */
+
+html.dark #ribbon-customizer-drawer .text-slate-900 {
+  color: #ffffff;
+}
+
+html.dark #ribbon-customizer-drawer .text-slate-700 {
+  color: #dbeafe;
+}
+
+html.dark #ribbon-customizer-drawer .text-slate-500 {
+  color: #93c5fd;
+}
+
+html.dark #ribbon-customizer-drawer .text-slate-400 {
+  color: #bfdbfe;
+}
+
+/* Borders */
+
+html.dark #ribbon-customizer-drawer .border-slate-100,
+html.dark #ribbon-customizer-drawer .border-slate-200 {
+  border-color: #bbc7ee;
+}
+
+/* Buttons */
+
+html.dark #ribbon-customizer-drawer button {
+  color: #dbeafe;
+}
+
+html.dark #ribbon-customizer-drawer button:hover {
+  background-color: #1e3a8a;
+}
+
+/* Preset buttons */
+
+html.dark #ribbon-customizer-drawer .bg-white {
+  background-color: #1e3a8a;
+}
+
+html.dark #ribbon-customizer-drawer .bg-slate-50\/80 {
+  background-color: #1e40af;
+}
+
+/* Done button */
+
+html.dark #ribbon-customizer-drawer .bg-slate-900 {
+  background-color: #ffffff;
+  color: #172554;
+}
+
+html.dark #ribbon-customizer-drawer .bg-slate-900:hover {
+  background-color: #dbeafe;
+}
