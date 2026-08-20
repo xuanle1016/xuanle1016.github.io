@@ -45,30 +45,48 @@ function App() {
   const experienceSectionRef = useRef<HTMLDivElement | null>(null);
   const skillsSectionRef = useRef<HTMLDivElement | null>(null);
 
-  // Scroll animation for Section Titles
+  // Scroll-driven section title animations
   useEffect(() => {
-    const titles = [
-      projectsTitleRef.current,
-      experienceTitleRef.current,
-      skillsTitleRef.current,
-      certsTitleRef.current
-    ];
+    const ctx = gsap.context(() => {
+      const titles = [
+        projectsTitleRef.current,
+        experienceTitleRef.current,
+        skillsTitleRef.current,
+        certsTitleRef.current,
+      ];
 
-    titles.forEach((title) => {
-      if (!title) return;
-      gsap.set(title, { opacity: 0, y: 60 });
-      gsap.to(title, {
-        opacity: 1,
-        y: 0,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: title,
-          start: 'top 90%',
-          end: 'top 60%',
-          scrub: 1,
-        },
+      titles.forEach((title) => {
+        if (!title) return;
+
+      // Immediately hide the title before ScrollTrigger starts
+      gsap.set(title, {
+        opacity: 0,
+        y: 40,
+      });
+
+      gsap.fromTo(
+          title,
+          {
+            opacity: 0,
+            y: 40,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: title,
+              start: 'top 90%',
+              end: 'top 55%',
+              scrub: 0.8,
+            },
+          }
+        );
       });
     });
+
+    return () => ctx.revert();
   }, []);
 
   return (
