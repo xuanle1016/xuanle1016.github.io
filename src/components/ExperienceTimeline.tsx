@@ -11,10 +11,10 @@ const experiences = [
     date: "Jun 2025 – Dec 2025",
     location: "Singapore",
     description: [
-      "Developed an automated Python-based ETL pipeline scraping 100+ financial news articles weekly.",
-      "Implemented RAG using AWS Bedrock for AI-powered analysis of large financial datasets.",
-      "Designed scalable AWS architecture using S3, RDS, and DynamoDB.",
-      "Developed analytics dashboards to monitor pipeline health and data quality."
+      "Automated hourly financial news extraction across five sources using Python, processing 100+ articles weekly and reducing review time from one week to two days.",
+      "Applied SQL, prompt engineering, and LLM-based classification to filter relevant financial news and generate automated summaries and insights.",
+      "Built a scalable AWS data pipeline using S3, RDS, DynamoDB, Lambda, Docker, ECR, and ECS Fargate.",
+      "Created dashboards to monitor pipeline performance, and article volumes daily."
     ],
     tags: ["Python", "AWS", "RAG", "LLM"],
     color: "from-cyan-400 to-blue-500"

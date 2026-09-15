@@ -268,6 +268,13 @@
   filter: blur(2px) grayscale(20%);
 }
 
+@media (max-width: 768px) {
+  .swiper-slide:not(.swiper-slide-active) {
+    opacity: 1;
+    filter: none;
+  }
+}
+
 .swiper-slide-active .glass-card {
   background: rgba(255, 255, 255, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.6);
